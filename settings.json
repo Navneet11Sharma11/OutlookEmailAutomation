@@ -1,0 +1,9 @@
+{
+  "OutlookEmail": {
+    "EmailAddress": "navneet11sharma11@hotmail.com",
+    "SourceFolder": "RFQ_ORIGINAL",
+    "DestinationFolder": "RFQ_DONE",
+    "OutputDirectory": "C:\\Emails",
+    "LogDirectory": "C:\\Logs"
+  }
+}
