@@ -4,6 +4,7 @@
     "SourceFolder": "RFQ_ORIGINAL",
     "DestinationFolder": "RFQ_DONE",
     "OutputDirectory": "C:\\Emails",
-    "LogDirectory": "C:\\Logs"
+    "LogDirectory": "C:\\Logs",
+    "IsLoggingEnabled": true
   }
 }

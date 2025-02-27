@@ -1,0 +1,10 @@
+{
+  "OutlookEmail": {
+    "EmailAddress": "navneet.sharma@programmers.io",
+    "SourceFolder": "JobOpening",
+    "DestinationFolder": "Li",
+    "OutputDirectory": "C:\\Emails",
+    "LogDirectory": "C:\\Logs",
+    "IsLoggingEnabled": true
+  }
+}

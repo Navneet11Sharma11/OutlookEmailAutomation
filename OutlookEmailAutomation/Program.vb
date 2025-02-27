@@ -1,6 +1,5 @@
-Imports System.IO
-Imports System.Reflection
-Imports Microsoft.Office.Interop.Outlook
+Imports OutlookEmailAutomation.Business
+Imports OutlookEmailAutomation.Shared.Interfaces
 
 Module Program
     Sub Main(args As String())
@@ -8,20 +7,13 @@ Module Program
         Console.WriteLine("Starting application...")
         emailProcessor.ReadConfiguration()
 
-        If Not Directory.Exists(emailProcessor.outlookSettings.OutputDirectory) Then
-            Console.WriteLine($"Creating output directory: {emailProcessor.outlookSettings.OutputDirectory}")
-            Directory.CreateDirectory(emailProcessor.outlookSettings.OutputDirectory)
-        End If
-
-        Dim outlookApp As New Application()
-        Dim ns As [NameSpace] = outlookApp.GetNamespace("MAPI")
-        ns.Logon("", "", Missing.Value, Missing.Value)
-        Console.WriteLine("Connected to Outlook")
+        emailProcessor.EnsureDirectoriesExist()
 
         Try
-            emailProcessor.ReadEmailsFromFolder(ns)
+            emailProcessor.ProcessEmails()
         Catch ex As System.Exception
-            Logger.LogError(emailProcessor.outlookSettings, ex)
+            Dim emailLogger As IEmailLogger = New EmailLogger()
+            emailLogger.LogError(emailProcessor.outlookSettings, ex)
             Console.WriteLine("An error occurred while reading emails.")
         End Try
     End Sub
