@@ -10,7 +10,7 @@ This VB.NET application processes emails in a specified folder in Microsoft Outl
 4. Move processed emails to the RFQ_DONE folder.
 
 ## Technology Stack
-- **Technology:** VB.NET (.NET Framework or .NET 8 based on your preference)
+- **Technology:** VB.NET (.NET 8)
 - **Libraries Used:** Microsoft Outlook Interop (for local Outlook processing)
 - **File Handling:** System.IO for text file creation and management.
 - **Error Handling:** Implement robust logging for debugging and smooth execution.
@@ -18,7 +18,22 @@ This VB.NET application processes emails in a specified folder in Microsoft Outl
 ## Requirements
 - Microsoft Outlook
 - VB.NET
-- .NET Framework or .NET 8
+- .NET 8
+
+## Configuration
+The application uses two configuration files: `settings.Development.json` and `settings.Production.json`. Here is an example configuration:
+
+```json
+{
+  "OutlookEmail": {
+    "EmailAddress": "test@outlook.com",
+    "SourceFolder": "RFQ_ORIGINAL",
+    "DestinationFolder": "RFQ_DONE",
+    "OutputDirectory": "C:\\Emails",
+    "LogDirectory": "C:\\Logs",
+    "IsLoggingEnabled": true
+  }
+}
 
 ## Setup Instructions
 1. Clone the repository.
@@ -32,8 +47,9 @@ This VB.NET application processes emails in a specified folder in Microsoft Outl
 3. The application will:
    - Connect to Outlook.
    - Read emails from the RFQ_ORIGINAL folder.
-   - Save email contents to uniquely named text files.
+   - Save email contents to uniquely named text files in the OutputDirectory.
    - Move processed emails to the RFQ_DONE folder.
+   - Log information in the LogDirectory if IsLoggingEnabled is set to true.
 
 ## Error Handling
 The application includes robust logging to capture and report errors for debugging and smooth execution.
@@ -42,4 +58,4 @@ The application includes robust logging to capture and report errors for debuggi
 Feel free to fork this repository, create a branch, and make changes. Submit a pull request for review.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the EA Tech License.
