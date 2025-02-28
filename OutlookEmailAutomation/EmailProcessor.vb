@@ -1,36 +1,15 @@
-﻿Imports System.IO
-Imports Newtonsoft.Json
-Imports OutlookEmailAutomation.Shared
-Imports OutlookEmailAutomation.Shared.Interfaces
+﻿Imports OutlookEmailAutomation.Shared
 Imports OutlookEmailAutomation.Shared.Models
 
 Public Class EmailProcessor
-    Public Property outlookSettings As OutlookSettings
-    Public Property emailService As IEmailService
     Private ReadOnly fileSystem As IFileSystem
-    Private ReadOnly emailLogger As IEmailLogger
+    Private ReadOnly emailService As IEmailService
+    Private ReadOnly outlookSettings As OutlookSettings
 
-    Public Sub New(fileSystem As IFileSystem, emailLogger As IEmailLogger, emailService As IEmailService)
+    Public Sub New(fileSystem As IFileSystem, emailService As IEmailService, outlookSettings As OutlookSettings)
         Me.fileSystem = fileSystem
-        Me.emailLogger = emailLogger
         Me.emailService = emailService
-    End Sub
-
-    Public Sub ReadConfiguration()
-        Dim environment As String = If(System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"), "Development")
-        Console.WriteLine($"Current environment: {environment}")
-        Dim configFileName As String = $"settings.{environment}.json"
-        Dim configFilePath As String = Path.Combine(Directory.GetCurrentDirectory(), configFileName)
-
-        If fileSystem.FileExists(configFilePath) Then
-            Dim json As String = fileSystem.ReadFile(configFilePath)
-            Dim root As ConfigurationRoot = JsonConvert.DeserializeObject(Of ConfigurationRoot)(json)
-            outlookSettings = root.OutlookEmail
-            Console.WriteLine($"Configuration loaded successfully for {environment}.")
-            emailLogger.LogInfo(outlookSettings, $"Configuration loaded successfully for {environment}.")
-        Else
-            Throw New FileNotFoundException($"Configuration file '{configFileName}' not found!")
-        End If
+        Me.outlookSettings = outlookSettings
     End Sub
 
     Public Sub ProcessEmails()

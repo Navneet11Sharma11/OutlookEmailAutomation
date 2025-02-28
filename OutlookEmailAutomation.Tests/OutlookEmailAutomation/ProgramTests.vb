@@ -31,20 +31,17 @@ Public Class ProgramTests
         Dim configJson As String = JsonConvert.SerializeObject(New With {Key .OutlookEmail = outlookSettings})
         mockFileSystem.Setup(Function(fs) fs.ReadFile(It.IsAny(Of String))).Returns(configJson)
 
-        ' Set up the DI container
         Dim serviceProvider As IServiceProvider = New ServiceCollection() _
             .AddSingleton(Of IFileSystem)(mockFileSystem.Object) _
             .AddSingleton(Of IEmailLogger)(mockLogger.Object) _
             .AddSingleton(Of IEmailService)(mockEmailService.Object) _
-            .AddSingleton(Of EmailProcessor) _
+            .AddSingleton(outlookSettings) _
+            .AddSingleton(Of EmailProcessor)() _
             .BuildServiceProvider()
 
-        ' Resolve the EmailProcessor
         Dim emailProcessor As EmailProcessor = serviceProvider.GetService(Of EmailProcessor)()
-        emailProcessor.outlookSettings = outlookSettings
 
         ' Act
-        emailProcessor.ReadConfiguration()
         emailProcessor.EnsureDirectoriesExist()
         emailProcessor.ProcessEmails()
 
