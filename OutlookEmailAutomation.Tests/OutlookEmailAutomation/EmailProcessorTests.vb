@@ -115,4 +115,5 @@ Public Class EmailProcessorTests
         ' Assert
         _mockEmailService.Verify(Sub(es) es.ConnectAndProcessEmails(), Times.Never)
     End Sub
+
 End Class

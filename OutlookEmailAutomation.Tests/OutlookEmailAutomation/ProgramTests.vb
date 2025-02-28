@@ -4,6 +4,7 @@ Imports OutlookEmailAutomation.Shared
 Imports OutlookEmailAutomation.Shared.Interfaces
 Imports OutlookEmailAutomation.Shared.Models
 Imports OutlookEmailAutomation.Service.Services
+Imports Newtonsoft.Json
 
 Public Class ProgramTests
 
@@ -24,6 +25,10 @@ Public Class ProgramTests
 
         mockFileSystem.Setup(Function(fs) fs.DirectoryExists(It.IsAny(Of String))).Returns(False)
         mockFileSystem.Setup(Sub(fs) fs.CreateDirectory(It.IsAny(Of String)))
+        mockFileSystem.Setup(Function(fs) fs.FileExists(It.IsAny(Of String))).Returns(True)
+
+        Dim configJson As String = JsonConvert.SerializeObject(New With {Key .OutlookEmail = outlookSettings})
+        mockFileSystem.Setup(Function(fs) fs.ReadFile(It.IsAny(Of String))).Returns(configJson)
 
         Dim emailProcessor = New EmailProcessor(mockFileSystem.Object) With {
             .outlookSettings = outlookSettings

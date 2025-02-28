@@ -9,7 +9,7 @@ Imports OutlookEmailAutomation.Shared.Wrappers
 
 Public Class EmailProcessor
     Public Property outlookSettings As OutlookSettings
-    Public Property emailService As EmailService
+    Public Property emailService As IEmailService
     Private ReadOnly fileSystem As IFileSystem
 
     Public Sub New(Optional fileSystem As IFileSystem = Nothing)
