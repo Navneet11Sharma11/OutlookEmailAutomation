@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OutlookEmailAutomation.Business\OutlookEmailAutomation.Service.vbproj" />
+    <ProjectReference Include="..\OutlookEmailAutomation.Service\OutlookEmailAutomation.Service.vbproj" />
     <ProjectReference Include="..\OutlookEmailAutomation.Shared\OutlookEmailAutomation.Shared.vbproj" />
     <ProjectReference Include="..\OutlookEmailAutomation\OutlookEmailAutomation.vbproj" />
   </ItemGroup>

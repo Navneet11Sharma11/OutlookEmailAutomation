@@ -1,9 +1,9 @@
 ﻿Imports Xunit
 Imports Moq
 Imports OutlookEmailAutomation.Shared
-Imports OutlookEmailAutomation.Business
 Imports OutlookEmailAutomation.Shared.Interfaces
 Imports OutlookEmailAutomation.Shared.Models
+Imports OutlookEmailAutomation.Service.Services
 
 Public Class ProgramTests
 

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>OutlookEmailAutomation.Business</RootNamespace>
+    <RootNamespace>OutlookEmailAutomation.Service</RootNamespace>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 

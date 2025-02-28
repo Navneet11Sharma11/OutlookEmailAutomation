@@ -1,9 +1,11 @@
 ﻿Imports System.IO
 Imports Newtonsoft.Json
-Imports OutlookEmailAutomation.Business
+Imports OutlookEmailAutomation.Service.Services
 Imports OutlookEmailAutomation.Shared
 Imports OutlookEmailAutomation.Shared.Interfaces
+Imports OutlookEmailAutomation.Shared.Loggers
 Imports OutlookEmailAutomation.Shared.Models
+Imports OutlookEmailAutomation.Shared.Wrappers
 
 Public Class EmailProcessor
     Public Property outlookSettings As OutlookSettings

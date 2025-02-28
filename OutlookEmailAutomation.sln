@@ -5,11 +5,11 @@ VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OutlookEmailAutomation", "OutlookEmailAutomation\OutlookEmailAutomation.vbproj", "{23226115-0E84-57C6-EDE6-66AC59ED546E}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OutlookEmailAutomation.Service", "OutlookEmailAutomation.Business\OutlookEmailAutomation.Service.vbproj", "{E96076C8-AAE4-4A1D-A01A-83A9CF5775B9}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OutlookEmailAutomation.Shared", "OutlookEmailAutomation.Shared\OutlookEmailAutomation.Shared.vbproj", "{2807D71F-8D58-4DC3-A567-B508BF159349}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OutlookEmailAutomation.Tests", "OutlookEmailAutomation.Tests\OutlookEmailAutomation.Tests.vbproj", "{18377F06-89C2-FA46-D130-6E5B0C72AD27}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OutlookEmailAutomation.Service", "OutlookEmailAutomation.Service\OutlookEmailAutomation.Service.vbproj", "{FA3A3526-5057-6D3D-BB31-3FC758B2C0AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{23226115-0E84-57C6-EDE6-66AC59ED546E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23226115-0E84-57C6-EDE6-66AC59ED546E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23226115-0E84-57C6-EDE6-66AC59ED546E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E96076C8-AAE4-4A1D-A01A-83A9CF5775B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E96076C8-AAE4-4A1D-A01A-83A9CF5775B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E96076C8-AAE4-4A1D-A01A-83A9CF5775B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E96076C8-AAE4-4A1D-A01A-83A9CF5775B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2807D71F-8D58-4DC3-A567-B508BF159349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2807D71F-8D58-4DC3-A567-B508BF159349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2807D71F-8D58-4DC3-A567-B508BF159349}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{18377F06-89C2-FA46-D130-6E5B0C72AD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18377F06-89C2-FA46-D130-6E5B0C72AD27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18377F06-89C2-FA46-D130-6E5B0C72AD27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA3A3526-5057-6D3D-BB31-3FC758B2C0AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3A3526-5057-6D3D-BB31-3FC758B2C0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3A3526-5057-6D3D-BB31-3FC758B2C0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3A3526-5057-6D3D-BB31-3FC758B2C0AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

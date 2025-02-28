@@ -1,5 +1,5 @@
-Imports OutlookEmailAutomation.Business
 Imports OutlookEmailAutomation.Shared.Interfaces
+Imports OutlookEmailAutomation.Shared.Loggers
 
 Module Program
     Sub Main(args As String())
