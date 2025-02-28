@@ -1,10 +1,10 @@
-﻿Imports System.IO
+﻿Imports Xunit
 Imports Moq
 Imports Newtonsoft.Json
 Imports OutlookEmailAutomation.Shared.Interfaces
 Imports OutlookEmailAutomation.Shared.Models
-Imports Xunit
 Imports OutlookEmailAutomation.Shared
+Imports System.IO
 
 Public Class EmailProcessorTests
     Private ReadOnly _mockFileSystem As Mock(Of IFileSystem)
@@ -17,11 +17,12 @@ Public Class EmailProcessorTests
         _mockFileSystem = New Mock(Of IFileSystem)()
         _mockEmailService = New Mock(Of IEmailService)()
         _mockEmailLogger = New Mock(Of IEmailLogger)()
-        _emailProcessor = New EmailProcessor(_mockFileSystem.Object)
         _outlookSettings = New OutlookSettings With {
             .OutputDirectory = "output",
             .LogDirectory = "logs"
         }
+
+        _emailProcessor = New EmailProcessor(_mockFileSystem.Object, _mockEmailLogger.Object, _mockEmailService.Object)
     End Sub
 
     <Fact>
@@ -115,5 +116,4 @@ Public Class EmailProcessorTests
         ' Assert
         _mockEmailService.Verify(Sub(es) es.ConnectAndProcessEmails(), Times.Never)
     End Sub
-
 End Class

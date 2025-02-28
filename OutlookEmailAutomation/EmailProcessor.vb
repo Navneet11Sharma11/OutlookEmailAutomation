@@ -1,19 +1,19 @@
 ﻿Imports System.IO
 Imports Newtonsoft.Json
-Imports OutlookEmailAutomation.Service.Services
 Imports OutlookEmailAutomation.Shared
 Imports OutlookEmailAutomation.Shared.Interfaces
-Imports OutlookEmailAutomation.Shared.Loggers
 Imports OutlookEmailAutomation.Shared.Models
-Imports OutlookEmailAutomation.Shared.Wrappers
 
 Public Class EmailProcessor
     Public Property outlookSettings As OutlookSettings
     Public Property emailService As IEmailService
     Private ReadOnly fileSystem As IFileSystem
+    Private ReadOnly emailLogger As IEmailLogger
 
-    Public Sub New(Optional fileSystem As IFileSystem = Nothing)
-        Me.fileSystem = If(fileSystem, New FileSystemWrapper())
+    Public Sub New(fileSystem As IFileSystem, emailLogger As IEmailLogger, emailService As IEmailService)
+        Me.fileSystem = fileSystem
+        Me.emailLogger = emailLogger
+        Me.emailService = emailService
     End Sub
 
     Public Sub ReadConfiguration()
@@ -27,9 +27,7 @@ Public Class EmailProcessor
             Dim root As ConfigurationRoot = JsonConvert.DeserializeObject(Of ConfigurationRoot)(json)
             outlookSettings = root.OutlookEmail
             Console.WriteLine($"Configuration loaded successfully for {environment}.")
-            Dim emailLogger As IEmailLogger = New EmailLogger()
             emailLogger.LogInfo(outlookSettings, $"Configuration loaded successfully for {environment}.")
-            emailService = New EmailService(outlookSettings, emailLogger, fileSystem)
         Else
             Throw New FileNotFoundException($"Configuration file '{configFileName}' not found!")
         End If
