@@ -22,8 +22,8 @@ Public Class EmailProcessor
         Dim configFileName As String = $"settings.{environment}.json"
         Dim configFilePath As String = Path.Combine(Directory.GetCurrentDirectory(), configFileName)
 
-        If File.Exists(configFilePath) Then
-            Dim json As String = File.ReadAllText(configFilePath)
+        If fileSystem.FileExists(configFilePath) Then
+            Dim json As String = fileSystem.ReadFile(configFilePath)
             Dim root As ConfigurationRoot = JsonConvert.DeserializeObject(Of ConfigurationRoot)(json)
             outlookSettings = root.OutlookEmail
             Console.WriteLine($"Configuration loaded successfully for {environment}.")
