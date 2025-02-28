@@ -1,8 +1,8 @@
 {
   "OutlookEmail": {
-    "EmailAddress": "navneet.sharma@programmers.io",
-    "SourceFolder": "JobOpening",
-    "DestinationFolder": "Li",
+    "EmailAddress": "navneet11kumar11@hotmail.com",
+    "SourceFolder": "RFQ_ORIGINAL",
+    "DestinationFolder": "RFQ_DONE",
     "OutputDirectory": "C:\\Emails",
     "LogDirectory": "C:\\Logs",
     "IsLoggingEnabled": true
