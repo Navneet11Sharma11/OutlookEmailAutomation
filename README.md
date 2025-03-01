@@ -58,4 +58,4 @@ The application includes robust logging to capture and report errors for debuggi
 Feel free to fork this repository, create a branch, and make changes. Submit a pull request for review.
 
 ## License
-This project is licensed under the EA Tech License.
+This project is licensed under the Kurt Lindberg License.
